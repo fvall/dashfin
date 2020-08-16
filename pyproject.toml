@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "findash"
+version = "0.1.0"
+description = "A simple financial dashboard"
+authors = ["Felipe Valladao <felipe.valladao@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7.0"
+flask = "^1.1.0"
+dash = "^1.14.0"
+pandas = "^1.0.0"
+requests = "^2.24.0"
+yfinance = "^0.1.54"
+IPython = "^7.17.0"
+ipykernel = "^5.3.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
