@@ -1,6 +1,6 @@
 import datetime
 
-from utils import parse_date
+from ..utils import parse_date
 from collections.abc import Iterable
 from .providers import DataService
 
@@ -12,7 +12,7 @@ class FX(DataService):
 
     currencies = {'USD', 'BRL', 'EUR', 'GBP'}
 
-    def get(self, ccy = None, start = None, end = None):
+    def get(self, ccy = None, start = None, end = None, **kwargs):
         
         # ------------
         # Parse dates
@@ -63,12 +63,12 @@ class FX(DataService):
         
         pairs = ['USD' + str(c).upper() + "=X" for c in ccy if c.upper() != 'USD']
         extract = super().get('yahoo')
-        quote = extract(
-            pairs,
-            start = start,
-            end   = end,
-            group_by = 'column'
-        )
+        
+        kwargs = dict(**kwargs)
+        kwargs['start'] = start
+        kwargs['end'] = end
+        kwargs['group_by'] = kwargs.get('group_by', 'column')
+        quote = extract(pairs, **kwargs)
 
         quote = quote.loc[:, ['Close']].droplevel(
             0, axis = 1
