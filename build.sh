@@ -6,9 +6,9 @@ poetry export -f requirements.txt -o requirements.txt
 
 # - Docker
 
-docker rmi fin || true
+docker rmi finapp || true
 docker build -t finapp .
 
-# - Cleanup
+# - Cleanup`
 
 rm requirements.txt
