@@ -1,10 +1,46 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-</head>
-<body>
-    Home
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <div class="home-page">
+        <div class="overview">
+            <section>
+                <h3>Equity</h2>
+                {{idx_tbl | safe}}
+            </section>
+            <section>
+                <h3>FX</h2>
+                {{fx_tbl | safe}}
+            </section>
+        </div>
+        <hr>
+        <div class="time-series">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="title">A very nice chart</h3>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                      <label for="symbols">Symbols</label>
+                      <select class="custom-select d-block w-100" multiple id="symbols" required>
+                        <option value="">Choose...</option>
+                        {% for opt in options %}
+                            <option>{{opt}}</option>
+                        {% endfor %}
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid country.
+                      </div>
+                    </div>
+                    <div class="col-md-10 mb-9">
+                        <div class="row">
+                            <h2>Chart</h2>
+                        </div>
+                        <div class="row" id="chart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+{% endblock %}

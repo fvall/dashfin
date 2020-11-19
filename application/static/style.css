@@ -1,0 +1,25 @@
+ * {
+    margin : 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+
+.home-page .overview {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 0;
+}
+
+.home-page .overview section {
+    margin: 0 auto;
+}
+
+.home-page .time-series .title {
+    font-size: 2.0rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.time-series .container {
+    margin: 2rem auto;
+}
