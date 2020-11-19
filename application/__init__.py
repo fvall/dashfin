@@ -1,14 +1,19 @@
 from flask import Flask
+
 from . import data
 from . import interface
+from . import config
 
 
 def create_app():
     
     """Initialize the core application."""
-    app = Flask(__name__, instance_relative_config=False)
+    app = Flask(
+        __name__,
+        instance_relative_config = False
+    )
     
-    # app.config.from_object('config.Config')
+    app.secret_key = 'SECRET'
     
     with app.app_context():
         
